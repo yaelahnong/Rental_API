@@ -2,9 +2,9 @@
 
 ## Installation
 
-- 1. composer install
-- 2. import database (MySQL / PHPMyAdmin) inside database folder
-- 3. create .env file add database config (see .env.example)
+- composer install
+- import database (MySQL / PHPMyAdmin) inside database folder
+- create .env file add database config (see .env.example)
 
 ## Run Server
 
