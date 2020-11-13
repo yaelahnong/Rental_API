@@ -1,5 +1,15 @@
 # Lumen PHP Framework
 
+## Installation
+
+- 1. composer install
+- 2. import database (MySQL / PHPMyAdmin) inside database folder
+- 3. create .env file add database config (see .env.example)
+
+## Run Server
+
+### `php -S localhost:8000 -t public`
+
 [![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
 [![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
 [![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
