@@ -14,7 +14,7 @@ class MobilController extends Controller
      */
     public function index()
     {
-        $mobil = Mobil::where('status_mobil', 1)->get();
+        $mobil = Mobil::whereRaw('stok_mobil > 0')->get();
         return response($mobil);
     }
 
@@ -121,6 +121,68 @@ class MobilController extends Controller
             $res['message'] = 'Update mobil gagal!';
 
             return response($res);
+        }
+    }
+
+    public function kurangStokMobil(Request $request, $id_mobil)
+    {
+        $mobil = Mobil::where('id_mobil', $id_mobil)->first();
+        if($mobil) {
+            $stokMobil = $mobil->stok_mobil;
+            $minStokMobil = $stokMobil - 1;
+            if($stokMobil > 0) {
+                $updateStokMobil = Mobil::where('id_mobil', $id_mobil)->update([
+                    'stok_mobil' => $minStokMobil
+                ]);
+                if($updateStokMobil) {
+                    $mobilAfter = Mobil::where('id_mobil', $id_mobil)->first();
+                    if($mobilAfter) {
+                        $stokMobilAfter = $mobilAfter->stok_mobil;
+                        $res['success'] = true;
+                        $res['message'] = 'Tambah stok mobil sukses';
+                        
+                        return response($res);
+                    }
+                } else {
+                    $res['success'] = false;
+                    $res['message'] = 'Kurang stok mobil gagal';
+
+                    return response($res);
+                }
+            } else {
+                $res['message'] = 'Stok mobil habis';
+
+                return response($res);
+            }
+
+        }
+    }
+
+    public function tambahStokMobil(Request $request, $id_mobil)
+    {
+        $mobil = Mobil::where('id_mobil', $id_mobil)->first();
+        if($mobil) {
+            $stokMobil = $mobil->stok_mobil;
+            $minStokMobil = $stokMobil + 1;
+            $updateStokMobil = Mobil::where('id_mobil', $id_mobil)->update([
+                'stok_mobil' => $minStokMobil
+            ]);
+            if($updateStokMobil) {
+                $mobilAfter = Mobil::where('id_mobil', $id_mobil)->first();
+                if($mobilAfter) {
+                    $stokMobilAfter = $mobilAfter->stok_mobil;
+                    $res['success'] = true;
+                    $res['message'] = 'Tambah stok mobil sukses!';
+
+                    return response($res);
+                }
+            } else {
+                $res['success'] = false;
+                $res['message'] = 'Tambah stok mobil gagal!';
+
+                return response($res);
+            }
+
         }
     }
 

@@ -33,6 +33,8 @@ $router->get('/mobil', ['middleware' => 'auth', 'uses' => 'MobilController@index
 $router->get('/mobil/{id_mobil}', ['middleware' => 'auth', 'uses' => 'MobilController@get_mobil']);
 $router->post('/mobil', ['middleware' => 'auth', 'uses' => 'MobilController@post_mobil']);
 $router->put('/mobil/{id_mobil}', ['middleware' => 'auth', 'uses' => 'MobilController@put_mobil']);
+$router->put('/tambahStokMobil/{id_mobil}', ['middleware' => 'auth', 'uses' => 'MobilController@tambahStokMobil']);
+$router->put('/kurangStokMobil/{id_mobil}', ['middleware' => 'auth', 'uses' => 'MobilController@kurangStokMobil']);
 $router->delete('/mobil/{id_mobil}', ['middleware' => 'auth', 'uses' => 'MobilController@delete_mobil']);
 
 // $router->get('/transaksi', ['middleware' => 'auth', 'uses' => 'TransaksiController@index']);
@@ -50,3 +52,7 @@ $router->delete('/detail_transaksi/{id_detail_transaksi}', ['middleware' => 'aut
 
 $router->get('/details', ['middleware' => 'auth', 'uses' => 'ViewDetailTransaksiController@index']);
 $router->get('/details/{id_user}', ['middleware' => 'auth', 'uses' => 'ViewDetailTransaksiController@get_v_detail_transaksi']);
+
+$router->get('/bank', ['middleware' => 'auth', 'uses' => 'BankController@index']);
+
+$router->get('/rental_info', ['middleware' => 'auth', 'uses' => 'RentalInfoController@index']);

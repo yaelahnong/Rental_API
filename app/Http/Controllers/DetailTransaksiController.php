@@ -73,7 +73,7 @@ class DetailTransaksiController extends Controller
             return response($res);
         }else{
             $res['success'] = false;
-            $res['message'] = 'Tambah detail transaksi sukses!';
+            $res['message'] = 'Tambah detail transaksi gagal!';
 
             return response($res);
         }

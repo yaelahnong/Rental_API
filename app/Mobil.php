@@ -18,7 +18,7 @@ class Mobil extends Model implements AuthenticatableContract, AuthorizableContra
      * @var array
      */
     protected $fillable = [
-        'nama_mobil', 'merk_mobil', 'deskripsi_mobil', 'tahun_mobil', 'kapasitas_mobil', 'harga_mobil', 'warna_mobil', 'plat_no_mobil', 'status_mobil', 'foto_mobil'
+        'nama_mobil', 'merk_mobil', 'deskripsi_mobil', 'tahun_mobil', 'kapasitas_mobil', 'harga_mobil', 'warna_mobil', 'plat_no_mobil', 'foto_mobil', 'stok_mobil'
     ];
 
     // variable $fillable dimana ini berfungsi memberikan izin colom mana saja dari database users ini yang bisa kita pakai.
